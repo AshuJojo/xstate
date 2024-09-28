@@ -47,6 +47,10 @@ const LocationSelector = () => {
     }, []);
 
     useEffect(() => {
+        setSelectedState(() => '')
+        setStates(() => [])
+        setSelectedCity(() => '')
+        setCities(() => [])
         if (selectedCountry == '')
             return;
 
@@ -57,6 +61,8 @@ const LocationSelector = () => {
     }, [selectedCountry]);
 
     useEffect(() => {
+        setSelectedCity(() => '')
+        setCities(() => [])
         if (selectedState == '')
             return;
 
@@ -73,7 +79,7 @@ const LocationSelector = () => {
             <br />
             <div style={{ display: "flex", gap: '8px' }}>
                 <select value={selectedCountry} onChange={(e) => { setSelectedCountry(e.target.value) }}>
-                    <option value="" >Select Country</option>
+                    <option value="" disabled>Select Country</option>
                     {countries.length > 0 && countries.map((country, idx) => {
                         return (
                             <option key={idx} value={country}>{country}</option>
@@ -81,7 +87,7 @@ const LocationSelector = () => {
                     })}
                 </select>
                 <select disabled={selectedCountry === ''} value={selectedState} onChange={(e) => { setSelectedState(e.target.value) }}>
-                    <option value="">Select State</option>
+                    <option value="" disabled>Select State</option>
                     {states.length > 0 && states.map((state, idx) => {
                         return (
                             <option key={idx} value={state}>{state}</option>
@@ -89,7 +95,7 @@ const LocationSelector = () => {
                     })}
                 </select>
                 <select disabled={selectedState === ''} value={selectedCity} onChange={(e) => { setSelectedCity(e.target.value) }}>
-                    <option value="">Select State</option>
+                    <option value="" disabled>Select City</option>
                     {cities.length > 0 && cities.map((city, idx) => {
                         return (
                             <option key={idx} value={city}>{city}</option>
