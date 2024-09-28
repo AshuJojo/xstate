@@ -105,7 +105,7 @@ const LocationSelector = () => {
 
             </div>
             {selectedCountry && selectedState && selectedCity &&
-                <p style={{ fontWeight: "bold" }}>You Selected <span style={{ fontSize: '24px' }}>{selectedCity}</span>, <span style={{ color: 'gray' }}>{selectedState}, {selectedCountry}</span></p>}
+                <span style={{ fontWeight: "bold" }}>You Selected <span style={{ fontSize: '24px' }}>{selectedCity}</span>, <span style={{ color: 'gray' }}>{selectedState}, {selectedCountry}</span></span>}
         </div>
     )
 }
