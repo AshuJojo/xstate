@@ -72,12 +72,13 @@ const LocationSelector = () => {
         })();
     }, [selectedState]);
 
+
     return (
         <div className={styles.container}>
             <h1>Select Location</h1>
 
             <br />
-            <div style={{ display: "flex", gap: '8px' }}>
+            <div style={{ display: "flex", flexWrap: 'wrap', gap: '8px', textAlign: 'center', justifyContent: 'center' }}>
                 <select value={selectedCountry} onChange={(e) => { setSelectedCountry(e.target.value) }}>
                     <option value="" disabled>Select Country</option>
                     {countries.length > 0 && countries.map((country, idx) => {
@@ -102,10 +103,16 @@ const LocationSelector = () => {
                         )
                     })}
                 </select>
-
             </div>
-            {selectedCountry && selectedState && selectedCity &&
-                <span style={{ fontWeight: "bold" }}>You Selected <span style={{ fontSize: '24px' }}>{selectedCity}</span>, <span style={{ color: 'gray' }}>{selectedState}, {selectedCountry}</span></span>}
+            {selectedCity && (
+                <h2 >
+                    You selected <span >{selectedCity}</span>,
+                    <span>
+                        {" "}
+                        {selectedState}, {selectedCountry}
+                    </span>
+                </h2>
+            )}
         </div>
     )
 }
